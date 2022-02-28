@@ -1,53 +1,53 @@
 package arraylist
 
-class PirateArrrayList(private var numbers: IntArray) {
+class PirateArrrayList(private var elements: Any?[]) {
     
     //returns the size of the List
     fun size(): Int {
-        return numbers.size
+        return elements!.size
     }
 
     //returns if the list is empty
     fun isEmpty(): Boolean {
-        return numbers.isEmpty()
+        return elements.isEmpty()
     }
 
-    fun indexOf(number: Int): Int {
-        for (i in numbers.indices) {
-            if (numbers[i] == number) return i
+    fun indexOf(element: Any): Int {
+        for (i in elements.indices) {
+            if (elements[i] == element) return i
         }
         return -1
     }
 
-    fun toArray(): IntArray {
-        return numbers
+    fun toArray(): Any?[] {
+        return elements
     }
 
-    fun get (pos: Int): Int {
-        return if (pos < numbers.size) numbers[pos]
+    fun get (pos: Int): Any {
+        return if (pos < elements.size) elements[pos]
         else -1
     }
 
-    fun add (num: Int) {
-        val newArr = numbers.copyOf(numbers.size + 1)
-        newArr[newArr.size-1] = num
-        numbers = newArr
+    fun add (element: Any) {
+        val newArr = elements.copyOf(elements.size + 1)
+        newArr[newArr.size-1] = element
+        elements = newArr
     }
 
-    fun set (pos: Int,num: Int) {
-        numbers[pos] = num
+    fun set (pos: Int,element: Any) {
+        elements[pos] = element
     }
 
-    fun contains(num: Int): Boolean {
-        for (i in numbers.indices){
-            if(numbers[i] == num ) return true
+    fun contains(element: Any): Boolean {
+        for (i in elements.indices){
+            if(elements[i] == element ) return true
         }
         return false
     }
 
-    fun lastIndexOf(num: Int): Int{
-        for(i in numbers.size-1 downTo 0)
-            if(numbers[i] == num){
+    fun lastIndexOf(element: Any): Int{
+        for(i in elements.size-1 downTo 0)
+            if(elements[i] == element){
                 return i
             }
         return -1
@@ -68,3 +68,4 @@ fun main() {
     println("lastIndexOf 2: " + arrayList.lastIndexOf(2))
     println("lastIndexOf 0: " + arrayList.lastIndexOf(0))
 }
+main()
